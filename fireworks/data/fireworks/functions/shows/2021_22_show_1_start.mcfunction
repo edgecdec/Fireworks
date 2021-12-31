@@ -1,0 +1,1 @@
+scoreboard objectives add ShowTimer1 dummy "Show 1 Timer"
