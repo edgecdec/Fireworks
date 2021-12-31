@@ -1,4 +1,5 @@
 import random
+from Util import zipDir
 
 COORDS = (0, 20, 0)
 X_SPREAD = 20
@@ -37,3 +38,4 @@ def randomLocation(xSpread = X_SPREAD, ySpread = Y_SPREAD, zSpread = Z_SPREAD, r
 
 
 randomLocation()
+zipDir("fireworks/", "fireworks.zip")
