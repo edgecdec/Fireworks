@@ -4,7 +4,7 @@ COORDS = (0, 20, 0)
 X_SPREAD = 20
 Y_SPREAD = 5
 Z_SPREAD = 20
-REPEAT = 20
+REPEAT = 500
 LIFETIME_SPREAD = 15
 
 fireworkList = []
