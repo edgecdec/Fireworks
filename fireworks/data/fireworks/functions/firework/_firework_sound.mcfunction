@@ -1,0 +1,1 @@
+playsound minecraft:entity.firework_rocket.large_blast_far master @a ~ ~ ~ 10000 0.7
