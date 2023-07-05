@@ -29,19 +29,19 @@ with open('List Of Fireworks', 'r') as fireworks:
         fireworkList.append(f'{{id:firework_rocket{line}')
 
 
-def randomLocation(showFileName, xSpread = X_SPREAD, ySpread = Y_SPREAD, zSpread = Z_SPREAD, r = REPEAT,centerCoord = COORDS, lifetimeSpread = LIFETIME_SPREAD):
-    with open(f'{DEFAULT_SHOW_FILE_PATH}/{showFileName}.mcfunction', 'w') as file:
+def randomLocation(showFileName, showPartNumber, xSpread = X_SPREAD, ySpread = Y_SPREAD, zSpread = Z_SPREAD, r = REPEAT,centerCoord = COORDS, lifetimeSpread = LIFETIME_SPREAD):
+    with open(f'{DEFAULT_SHOW_FILE_PATH}/{showFileName}_{showPartNumber}.mcfunction', 'w') as file:
         print(file.name)
-        for line in range(1, r+1):
+        for line in range(r*showPartNumber, r*(showPartNumber+1)):
             x = centerCoord[0] + random.randint(-xSpread, xSpread)
             y = centerCoord[1] + random.randint(-ySpread, ySpread)
             z = centerCoord[2] + random.randint(-zSpread, zSpread)
             lifetime = random.randint(30-lifetimeSpread, 30+lifetimeSpread)
             fireworkType = random.choice(fireworkList)
-            file.write(f'execute if score {showFileName} ShowTimer matches {line} run summon firework_rocket {x} {y} {z} '
+            file.write(f'execute if score {showFileName} ShowTimer matches {line-REPEAT} run summon firework_rocket {x} {y} {z} '
                        f'{{LifeTime:{lifetime},FireworksItem:{fireworkType}}}\n')
 
-for i in range(1,10):
-    randomLocation(showFileName=f'july_4_show_{i}')
+for i in range(10):
+    randomLocation(showFileName=f'july_4_show', showPartNumber=i+1)
 
 zipDir("fireworks/", "fireworks.zip")
