@@ -10,4 +10,4 @@ function fireworks:shows/july_4_show_7
 function fireworks:shows/july_4_show_8
 function fireworks:shows/july_4_show_9
 function fireworks:shows/july_4_show_10
-execute if score july_4_show ShowTimer matches 10000 run scoreboard players set july_4_show_1 ShowTimer 0
+execute if score july_4_show ShowTimer matches 5000 run scoreboard players set july_4_show ShowTimer 0
